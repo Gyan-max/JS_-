@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>practice set</title>
+    <style>
+        .add-to-bag{
+            background-color: lightgreen;
+            color : black solid 2px;
+            border-radius: 8px;
+            border: none;
+            padding: 5px 10px;
+            line-height: 1.5;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .add-to-bag:hover{
+            background-color: rgb(237, 165, 32);
+        }
+
+        .move-to-wishlist{
+            border: solid black 2px;
+            border-radius: 8px;
+            padding: 5px 40px;
+            color: solid black;
+            background-color: white;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .move-to-wishlist:hover{
+            background-color: rgb(237, 165, 32);
+        }
+        .sale-item{
+            background-color: rgb(141, 241, 131);
+            color: black;
+            border-radius: 8px;
+            border: none;
+            padding: 5px 10px;
+            line-height: 1.5;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .sale-item:hover{
+            background-color: rgb(237, 165, 32);
+        }
+    </style>
+</head>
+<body>
+    <button class="add-to-bag">Add to Bag</button>
+    <button class="move-to-wishlist">MOVE TO WISHLIST</button>
+    <button class='sale-item'>Add 1 + 1 Sale Item</button>
+
+    <h1 class="cart-summary"></h1>
+    <script>
+        let cartQuantity = 0;
+        document.querySelector('.cart-summary').innerHTML = `Your Bag has ${cartQuantity} items`;
+
+        window.onload = function()
+        {
+
+            // cartQuantity = 0;
+        
+            document.querySelector('.add-to-bag').addEventListener('click', function(){
+                cartQuantity++;
+                document.querySelector('.cart-summary').innerHTML = `Your Bag has ${cartQuantity} items`;
+            })
+                
+            
+                document.querySelector('.move-to-wishlist').addEventListener('click', function() {
+                    cartQuantity--;
+                    document.querySelector('.cart-summary').innerHTML = `Your Bag has ${cartQuantity} items`;
+                })
+            
+
+            document.querySelector('.sale-item').addEventListener('click', function() {
+                cartQuantity +=2;
+                document.querySelector('.cart-summary').innerHTML = `Your Bag has ${cartQuantity} items`;
+            })
+        }
+    </script>
+</body>
+</html>
